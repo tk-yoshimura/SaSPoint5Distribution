@@ -18,7 +18,7 @@
 \end{align*}
 
 \begin{align*}
-  f(x)=\frac{2}{\pi} \left(1 - \frac{5!}{2!} x^2 + \frac{9!}{4!} x^4 - \frac{13!}{6!} x^6 \right) + \mathcal{O}(x^{-8})
+  f(x)=\frac{2}{\pi} \left(1 - \frac{5!}{2!} x^2 + \frac{9!}{4!} x^4 - \frac{13!}{6!} x^6 \right) + \mathcal{O}(x^{8})
 \end{align*}
 
 \begin{align*}
