@@ -5,12 +5,14 @@ namespace AlphaPoint5Distribution {
         public static MultiPrecision<Pow2.N16> Value(MultiPrecision<Pow2.N16> x) {
             x = MultiPrecision<Pow2.N16>.Abs(x);
 
-            if (x == 0) {
-                return 2 * MultiPrecision<Pow2.N16>.RcpPI;
-            }
+            if (x.Exponent < -21) {
+                MultiPrecision<Pow2.N32> x2 = MultiPrecision<Pow2.N32>.Square(x.Convert<Pow2.N32>());
 
-            if (x.Exponent < -24) {
-                throw new ArgumentException("extremely small x", nameof(x));
+                return 2 * MultiPrecision<Pow2.N16>.RcpPI * (
+                    1 - x2 * 60 * (1 - x2 * 252 * (1 - x2 * 572 * (1 - x2 * 1020 * (1 - x2 * 1596 * (
+                    1 - x2 * 2300 * (1 - x2 * 3132 * (1 - x2 * 4092 * (1 - x2 * 5180 * (1 - x2 * 6396 * (
+                    1 - x2 * 7740 * (1 - x2 * 9212 * (1 - x2 * 10812 * (1 - x2 * 12540 * (1 - x2 * 14396))))))))))))))
+                ).Convert<Pow2.N16>();
             }
 
             if (MultiPrecision<Pow2.N16>.IsPositiveInfinity(x)) {
