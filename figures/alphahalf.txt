@@ -1,0 +1,26 @@
+\begin{align*}
+  f(x; \mu, c):=\frac{1}{2 \pi} \int_{-\infty}^{\infty} \exp(i t \mu -|c t|^{1/2}) \exp(-i \pi t) 
+  \, dt 
+\end{align*}
+
+\begin{align*}
+  f(x):=f(x; \mu=0, c=1)
+\end{align*}
+
+\begin{align*}
+  f(x)=\frac{1}{\pi} \int_0^{\infty} \cos(x t) \exp(-\sqrt{t}) \, dt
+\end{align*}
+
+\begin{align*}
+  f(x)=\frac{1}{\sqrt{2 \pi |x^3|}} \left( 
+  \sin \left( \frac{1}{4|x|} \right) \left( \frac{1}{2} - S \left( \frac{1}{\sqrt{2 \pi |x|}} \right) \right) +
+  \cos \left( \frac{1}{4|x|} \right) \left( \frac{1}{2} - C \left( \frac{1}{\sqrt{2 \pi |x|}} \right) \right) \right)
+\end{align*}
+
+\begin{align*}
+  f(x)=\frac{2}{\pi} \left(1 - \frac{5!}{2!} x^2 + \frac{9!}{4!} x^4 - \frac{13!}{6!} x^6 \right) + \mathcal{O}(x^{-8})
+\end{align*}
+
+\begin{align*}
+  f(x)=\frac{1}{\sqrt{2^3 \pi}} x^{-3/2} - \frac{1}{2! \pi} x^{-2} + \frac{1}{\sqrt{2^7 \pi}} x^{-5/2} - \frac{1}{\sqrt{2^{13} \pi}} x^{-7/2} + \frac{1}{5! \pi} x^{-4} + \mathcal{O}(x^{-9/2})
+\end{align*}
