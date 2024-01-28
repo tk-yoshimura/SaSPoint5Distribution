@@ -4,7 +4,7 @@ using MultiPrecisionCurveFitting;
 
 namespace AlphaPoint5Distribution {
     internal class PadeApproximation {
-        static void Main() {
+        static void Main_() {
             List<(double xmin, double xmax)> ranges = [
                 (0, 1d / 512)
             ];
@@ -13,13 +13,13 @@ namespace AlphaPoint5Distribution {
                 ranges.Add((xmin, xmin * 2));
             }
 
-            using (StreamWriter sw = new("../../../../results_disused/pade_pdf_precision135.csv")) {
+            using (StreamWriter sw = new("../../../../results_disused/pade_pdf_precision135_2.csv")) {
                 foreach ((double xmin, double xmax) in ranges) {
                     Console.WriteLine($"[{xmin}, {xmax}]");
 
                     List<(MultiPrecision<Pow2.N64> x, MultiPrecision<Pow2.N64> y)> expecteds_range = [];
 
-                    for (double x = xmin, h = (xmax - xmin) / 4096; x <= xmax; x += h) { 
+                    for (double x = xmin, h = (xmax - xmin) / 4096; x <= xmax; x += h) {
                         MultiPrecision<Pow2.N16> y = PDFN16.Value(x);
 
                         expecteds_range.Add((x, y.Convert<Pow2.N64>()));
@@ -45,19 +45,27 @@ namespace AlphaPoint5Distribution {
                             max_rateerr = MultiPrecision<Pow2.N64>.Max(MultiPrecision<Pow2.N64>.Abs(errs[i] / ys[i]), max_rateerr);
                         }
 
-                        Console.WriteLine($"m={m-1},n={m}");
+                        Console.WriteLine($"m={m - 1},n={m}");
                         Console.WriteLine($"{max_rateerr:e20}");
 
                         if (max_rateerr < "1e-135" && param.All(item => item.val.Sign == Sign.Plus)) {
                             sw.WriteLine($"x=[{xmin},{xmax}]");
-                            sw.WriteLine($"m={m-1},n={m}");
+                            sw.WriteLine($"m={m - 1},n={m}");
                             sw.WriteLine("numer");
-                            foreach (var (_, val) in param[..(m-1)]) {
+                            foreach (var (_, val) in param[..(m - 1)]) {
                                 sw.WriteLine($"{val:e150}");
                             }
                             sw.WriteLine("denom");
-                            foreach (var (_, val) in param[(m-1)..]) {
+                            foreach (var (_, val) in param[(m - 1)..]) {
                                 sw.WriteLine($"{val:e150}");
+                            }
+
+                            sw.WriteLine("coef");
+                            for (int i = 0; i < m - 1; i++) {
+                                sw.WriteLine($"(\"{param[..(m - 1)][i]:e150}\", \"{param[(m - 1)..][i]:e150}\"),");
+                            }
+                            for (int i = 0; i < 1; i++) {
+                                sw.WriteLine($"(0, \"{param[(m - 1)..][m - 1 + i]:e150}\"),");
                             }
 
                             sw.WriteLine("relative err");

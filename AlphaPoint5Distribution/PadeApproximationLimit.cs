@@ -9,7 +9,7 @@ namespace AlphaPoint5Distribution {
                 (0, 1d / 4)
             ];
 
-            using (StreamWriter sw = new("../../../../results_disused/pade_limitpdf_precision135.csv")) {
+            using (StreamWriter sw = new("../../../../results_disused/pade_limitpdf_precision135_2.csv")) {
                 foreach ((double xmin, double xmax) in ranges) {
                     Console.WriteLine($"[{xmin}, {xmax}]");
 
@@ -21,7 +21,7 @@ namespace AlphaPoint5Distribution {
 
                             expecteds_range.Add((x.Convert<Pow2.N64>(), y));
                         }
-                        else { 
+                        else {
                             expecteds_range.Add((x.Convert<Pow2.N64>(), 1 / MultiPrecision<Pow2.N64>.Sqrt(8 * MultiPrecision<Pow2.N64>.PI)));
                         }
                     }
@@ -59,6 +59,14 @@ namespace AlphaPoint5Distribution {
                             sw.WriteLine("denom");
                             foreach (var (_, val) in param[(m - 2)..]) {
                                 sw.WriteLine($"{val:e150}");
+                            }
+
+                            sw.WriteLine("coef");
+                            for (int i = 0; i < m - 2; i++) {
+                                sw.WriteLine($"(\"{param[..(m - 2)][i]:e150}\", \"{param[(m - 2)..][i]:e150}\"),");
+                            }
+                            for (int i = 0; i < 2; i++) {
+                                sw.WriteLine($"(0, \"{param[(m - 2)..][m - 2 + i]:e150}\"),");
                             }
 
                             sw.WriteLine("relative err");
