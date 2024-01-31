@@ -27,8 +27,8 @@ When x is **extremely** small, the following series expression can also be used:
 ![alphahalf5](figures/alphahalf5.svg)  
 ![alphahalf6](figures/alphahalf6.svg)  
 
-When x is large, the following equation can be used as an asymptotic expression.
-The coefficients decay rapidly, making them suitable numerical evaluation:
+When x is large, the following equation can be used as an asymptotic expression.  
+The coefficients decay rapidly, making them suitable numerical evaluation:  
 ![alphahalf7](figures/alphahalf7.svg)  
 ![alphahalf8](figures/alphahalf8.svg)  
 
