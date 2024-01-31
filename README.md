@@ -23,11 +23,14 @@ Using fresnel integral function, it's obtained as follows:
 This equation becames difficult to obtain accurately when x is extremely small.
 ![alphahalf4](figures/alphahalf4.svg)  
 
-When x is **extremely** small, it can be approximated by the following equation:  
+When x is **extremely** small, the following series expression can also be used:  
 ![alphahalf5](figures/alphahalf5.svg)  
-
-When x is large, it can be approximated by the following equation:  
 ![alphahalf6](figures/alphahalf6.svg)  
+
+When x is large, the following equation can be used as an asymptotic expression.
+The coefficients decay rapidly, making them suitable numerical evaluation:
+![alphahalf7](figures/alphahalf7.svg)  
+![alphahalf8](figures/alphahalf8.svg)  
 
 ## Numeric Table
 [PDF Precision 150](results/pdf_precision150.csv)  
