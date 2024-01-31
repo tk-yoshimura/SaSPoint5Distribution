@@ -1,7 +1,7 @@
 ﻿using MultiPrecision;
 
 namespace AlphaPoint5Distribution {
-    internal static class Limit<N> where N : struct, IConstant {
+    internal static class FresnelLimit<N> where N : struct, IConstant {
 
         public static (MultiPrecision<N> c, MultiPrecision<N> s) Fresnel(MultiPrecision<N> x, int max_terms = 64) {
             (MultiPrecision<N> p, MultiPrecision<N> q) = Coef(x, max_terms);

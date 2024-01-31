@@ -16,7 +16,7 @@ namespace AlphaPoint5Distribution {
                 return (cos, sin);
             }
             else {
-                return Limit<Pow2.N16>.Fresnel(x);
+                return FresnelLimit<Pow2.N16>.Fresnel(x);
             }
         }
 
@@ -29,7 +29,7 @@ namespace AlphaPoint5Distribution {
                 return NearZero<Pow2.N16, Pow2.N64>.FresnelC(x);
             }
             else {
-                return Limit<Pow2.N16>.Fresnel(x).c;
+                return FresnelLimit<Pow2.N16>.Fresnel(x).c;
             }
         }
 
@@ -42,7 +42,7 @@ namespace AlphaPoint5Distribution {
                 return NearZero<Pow2.N16, Pow2.N64>.FresnelS(x);
             }
             else {
-                return Limit<Pow2.N16>.Fresnel(x).s;
+                return FresnelLimit<Pow2.N16>.Fresnel(x).s;
             }
         }
     }
