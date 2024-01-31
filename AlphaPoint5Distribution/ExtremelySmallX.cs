@@ -2,7 +2,7 @@
 
 namespace AlphaPoint5Distribution {
     internal class ExtremelySmallX {
-        static void Main() {
+        static void Main_() {
             using (StreamWriter sw = new("../../../../results_disused/pdf_smallx.csv")) {
                 sw.WriteLine("x,pdf(x)");
 

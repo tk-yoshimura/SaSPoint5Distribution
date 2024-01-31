@@ -3,10 +3,10 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 
 namespace AlphaPoint5Distribution {
-    internal static class ApproxUtil {
+    internal static class ApproxUtil<N> where N: struct, IConstant {
 
-        public static MultiPrecision<Pow2.N16> Pade(MultiPrecision<Pow2.N16> x, ReadOnlyCollection<(MultiPrecision<Pow2.N16> c, MultiPrecision<Pow2.N16> d)> table) {
-            (MultiPrecision<Pow2.N16> sc, MultiPrecision<Pow2.N16> sd) = table[^1];
+        public static MultiPrecision<N> Pade(MultiPrecision<N> x, ReadOnlyCollection<(MultiPrecision<N> c, MultiPrecision<N> d)> table) {
+            (MultiPrecision<N> sc, MultiPrecision<N> sd) = table[^1];
 
 #if DEBUG
             Trace.Assert(x >= 0, $"must be positive! {x}");
@@ -24,8 +24,8 @@ namespace AlphaPoint5Distribution {
             return sc / sd;
         }
 
-        public static MultiPrecision<Pow2.N16> Poly(MultiPrecision<Pow2.N16> x, ReadOnlyCollection<MultiPrecision<Pow2.N16>> table) {
-            MultiPrecision<Pow2.N16> s = table[^1];
+        public static MultiPrecision<N> Poly(MultiPrecision<N> x, ReadOnlyCollection<MultiPrecision<N>> table) {
+            MultiPrecision<N> s = table[^1];
 
             for (int i = table.Count - 2; i >= 0; i--) {
                 s = s * x + table[i];

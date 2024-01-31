@@ -38,7 +38,7 @@ namespace AlphaPoint5Distribution {
 
         public static MultiPrecision<M> CoefTable(int n) {
             for (int k = coef_table.Count; k <= n; k++) {
-                MultiPrecision<M> c = -PDFLimit<N, M>.CoefTable(k) / (k + 1) * 2;
+                MultiPrecision<M> c = PDFLimit<N, M>.CoefTable(k) / (k + 1) * 2;
 
                 coef_table.Add(c);
             }

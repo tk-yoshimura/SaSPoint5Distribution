@@ -2,7 +2,7 @@
 
 namespace AlphaPoint5Distribution {
     internal class EvalPDFPadeN16 {
-        static void Main() {
+        static void Main_() {
             using (StreamWriter sw = new("../../../../results_disused/pdf_pade_eval.csv")) {
                 sw.WriteLine("x,pdf(x),pdf_pade(x),err");
 

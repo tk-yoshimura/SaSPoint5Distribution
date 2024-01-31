@@ -1,7 +1,7 @@
 ﻿using MultiPrecision;
 
 namespace AlphaPoint5Distribution {
-    internal class ExpectedN16 {
+    internal class ExpectedPDFN16 {
         static void Main_() {
             using (StreamWriter sw = new("../../../../results/pdf_precision150.csv")) {
                 sw.WriteLine("x,pdf(x)");

@@ -812,51 +812,51 @@ namespace AlphaPoint5Distribution {
 
             MultiPrecision<Pow2.N16> y;
             if (x <= 1d / 512) {
-                y = ApproxUtil.Pade(x, pade_0_rcp512);
+                y = ApproxUtil<Pow2.N16>.Pade(x, pade_0_rcp512);
             }
             else if (x <= 1d / 256) {
-                y = ApproxUtil.Pade(x - 1d / 512, pade_rcp512_rcp256);
+                y = ApproxUtil<Pow2.N16>.Pade(x - 1d / 512, pade_rcp512_rcp256);
             }
             else if (x <= 1d / 128) {
-                y = ApproxUtil.Pade(x - 1d / 256, pade_rcp256_rcp128);
+                y = ApproxUtil<Pow2.N16>.Pade(x - 1d / 256, pade_rcp256_rcp128);
             }
             else if (x <= 1d / 64) {
-                y = ApproxUtil.Pade(x - 1d / 128, pade_rcp128_rcp64);
+                y = ApproxUtil<Pow2.N16>.Pade(x - 1d / 128, pade_rcp128_rcp64);
             }
             else if (x <= 1d / 32) {
-                y = ApproxUtil.Pade(x - 1d / 64, pade_rcp64_rcp32);
+                y = ApproxUtil<Pow2.N16>.Pade(x - 1d / 64, pade_rcp64_rcp32);
             }
             else if (x <= 1d / 16) {
-                y = ApproxUtil.Pade(x - 1d / 32, pade_rcp32_rcp16);
+                y = ApproxUtil<Pow2.N16>.Pade(x - 1d / 32, pade_rcp32_rcp16);
             }
             else if (x <= 1d / 8) {
-                y = ApproxUtil.Pade(x - 1d / 16, pade_rcp16_rcp8);
+                y = ApproxUtil<Pow2.N16>.Pade(x - 1d / 16, pade_rcp16_rcp8);
             }
             else if (x <= 1d / 4) {
-                y = ApproxUtil.Pade(x - 1d / 8, pade_rcp8_rcp4);
+                y = ApproxUtil<Pow2.N16>.Pade(x - 1d / 8, pade_rcp8_rcp4);
             }
             else if (x <= 1d / 2) {
-                y = ApproxUtil.Pade(x - 1d / 4, pade_rcp4_rcp2);
+                y = ApproxUtil<Pow2.N16>.Pade(x - 1d / 4, pade_rcp4_rcp2);
             }
             else if (x <= 1) {
-                y = ApproxUtil.Pade(x - 1d / 2, pade_rcp2_1);
+                y = ApproxUtil<Pow2.N16>.Pade(x - 1d / 2, pade_rcp2_1);
             }
             else if (x <= 2) {
-                y = ApproxUtil.Pade(x - 1, pade_1_2);
+                y = ApproxUtil<Pow2.N16>.Pade(x - 1, pade_1_2);
             }
             else if (x <= 4) {
-                y = ApproxUtil.Pade(x - 2, pade_2_4);
+                y = ApproxUtil<Pow2.N16>.Pade(x - 2, pade_2_4);
             }
             else if (x <= 8) {
-                y = ApproxUtil.Pade(x - 4, pade_4_8);
+                y = ApproxUtil<Pow2.N16>.Pade(x - 4, pade_4_8);
             }
             else if (x <= 16) {
-                y = ApproxUtil.Pade(x - 8, pade_8_16);
+                y = ApproxUtil<Pow2.N16>.Pade(x - 8, pade_8_16);
             }
             else {
                 MultiPrecision<Pow2.N16> v = MultiPrecision<Pow2.N16>.Sqrt(x);
 
-                y = ApproxUtil.Pade(1 / v, pade_limit) / MultiPrecision<Pow2.N16>.Pow(v, 3);
+                y = ApproxUtil<Pow2.N16>.Pade(1 / v, pade_limit) / MultiPrecision<Pow2.N16>.Pow(v, 3);
             }
 
             return y;
