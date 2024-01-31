@@ -10,6 +10,10 @@ Such a distribution with &beta; = 0 is called symmetric alpha-stable distributio
 
 The S&alpha;S point5 distribution, like these distribution, has a closed-from expression, but it can't be expressed in terms of elementary function.  
 
+![pdf](figures/sas_point5_pdf.svg)  
+![pdf-loglog](figures/sas_point5_pdf_loglog.svg)  
+![cdf](figures/sas_point5_cdf.svg)  
+
 ## Definition
 The S&alpha;S point5 distribution, generalized to a stable distribution by introducing position and scale parameters, is as follows:  
 ![alphahalf1](figures/alphahalf1.svg)  
