@@ -48,3 +48,6 @@ The coefficients decay rapidly, making them suitable numerical evaluation:
 
 ## Reference
 [K.I.Hopcraft, E.Jakeman, R.M.J.Tanner, "Lévy random walks with fluctuating step number and multiscale behavior" (1999)](https://journals.aps.org/pre/abstract/10.1103/PhysRevE.60.5327)  
+
+## See Also
+[HoltsmarkDistribution](https://github.com/tk-yoshimura/HoltsmarkDistribution)
