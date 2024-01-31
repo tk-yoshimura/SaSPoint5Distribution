@@ -42,5 +42,9 @@ The coefficients decay rapidly, making them suitable numerical evaluation:
 [PDF Precision 150](results/pdf_precision150.csv)  
 [CDF Precision 100](results/cdf_precision100.csv)  
 
+## S &alpha; S Distributions
+![sass-pdf](figures/sass_pdf.svg)  
+![sass-pdf-loglog](figures/sass_pdf_loglog.svg)  
+
 ## Reference
 [K.I.Hopcraft, E.Jakeman, R.M.J.Tanner, "Lévy random walks with fluctuating step number and multiscale behavior" (1999)](https://journals.aps.org/pre/abstract/10.1103/PhysRevE.60.5327)  
