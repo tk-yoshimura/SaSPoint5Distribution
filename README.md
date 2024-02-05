@@ -40,7 +40,7 @@ The coefficients decay rapidly, making them suitable numerical evaluation:
 
 ## Numeric Table
 [PDF Precision 150](results/pdf_precision150.csv)  
-[CDF Precision 100](results/cdf_precision100.csv)  
+[CDF Precision 150](results/cdf_precision150.csv)  
 
 ## S&alpha;S Distributions
 ![sass-pdf](figures/sass_pdf.svg)  

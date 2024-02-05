@@ -2,7 +2,7 @@
 
 namespace AlphaPoint5Distribution {
     internal class ExpectedPDFN16 {
-        static void Main_() {
+        static void Main() {
             using (StreamWriter sw = new("../../../../results/pdf_precision150.csv")) {
                 sw.WriteLine("x,pdf(x)");
 
