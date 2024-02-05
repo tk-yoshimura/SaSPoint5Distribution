@@ -11,7 +11,7 @@ namespace AlphaPoint5Distribution {
 
                 MultiPrecision<Pow2.N32> r = c / prev_c;
                 prev_c = c;
-                
+
                 nearzero_coefs.Add(r);
             }
         }
@@ -51,11 +51,8 @@ namespace AlphaPoint5Distribution {
                 else if (x.Exponent >= -11) {
                     y = CDFLimit<N20, Pow2.N64>.Value(x.Convert<N20>());
                 }
-                else if (x.Exponent >= -12) {
-                    y = CDFLimit<N20, Pow2.N128>.Value(x.Convert<N20>());
-                }
                 else {
-                    return MultiPrecision<Pow2.N16>.NaN;
+                    y = CDFLimit<N20, Pow2.N128>.Value(x.Convert<N20>());
                 }
 
                 return complementary ? y.Convert<Pow2.N16>() : (0.5 - y).Convert<Pow2.N16>();
