@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 
 namespace AlphaPoint5Distribution {
-    internal static class ApproxUtil<N> where N: struct, IConstant {
+    internal static class ApproxUtil<N> where N : struct, IConstant {
 
         public static MultiPrecision<N> Pade(MultiPrecision<N> x, ReadOnlyCollection<(MultiPrecision<N> c, MultiPrecision<N> d)> table) {
             (MultiPrecision<N> sc, MultiPrecision<N> sd) = table[^1];

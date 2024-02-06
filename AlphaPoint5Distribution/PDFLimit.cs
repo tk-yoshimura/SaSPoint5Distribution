@@ -46,7 +46,7 @@ namespace AlphaPoint5Distribution {
 
                     c = ((m / 2) % 2 == 0 ? 1 : -1) * norm / (MultiPrecision<M>.Ldexp(2, m) * ProdTable(m));
                 }
-                else if(k % 4 == 1) {
+                else if (k % 4 == 1) {
                     int m = k / 4;
 
                     c = (m % 2 == 0 ? -1 : 1) * MultiPrecision<M>.RcpPI / FracTable(m);
