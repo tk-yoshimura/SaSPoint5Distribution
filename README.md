@@ -38,9 +38,22 @@ The coefficients decay rapidly, making them suitable numerical evaluation:
 
 ![alphahalf8](figures/alphahalf8.svg)  
 
+## Statistics
+
+|stat|x|note|
+|----|----|----|
+|mean|0||
+|mode|0||
+|variance|N/A|undefined|
+|0.75-quantile|1.283832775189327742808346186911...||
+|0.9-quantile|12.74134266157698167806432787517...||
+|0.95-quantile|57.30402773063651002282616967046...|
+|0.99-quantile|155.9726103725110631926561534085...||
+
 ## Numeric Table
 [PDF Precision 150](results/pdf_precision150.csv)  
 [CDF Precision 150](results/cdf_precision150.csv)  
+[Quantile Precision 142](results/quantile_precision142.csv)  
 
 ## S&alpha;S Distributions
 ![sass-pdf](figures/sass_pdf.svg)  
