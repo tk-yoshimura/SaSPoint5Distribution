@@ -2,7 +2,7 @@
 
 namespace AlphaPoint5Distribution {
     internal class EvalCDFPadeN16 {
-        static void Main() {
+        static void Main_() {
             MultiPrecision<Pow2.N16> max_err = "1e-150";
 
             using (StreamWriter sw = new("../../../../results_disused/cdf_pade_eval.csv")) {
