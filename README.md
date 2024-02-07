@@ -42,7 +42,7 @@ The coefficients decay rapidly, making them suitable numerical evaluation:
 
 |stat|x|note|
 |----|----|----|
-|mean|0||
+|mean|N/A|undefined|
 |mode|0||
 |variance|N/A|undefined|
 |0.75-quantile|1.283832775189327742808346186911...||
