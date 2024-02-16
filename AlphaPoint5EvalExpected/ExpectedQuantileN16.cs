@@ -3,7 +3,7 @@ using MultiPrecision;
 using MultiPrecisionRootFinding;
 
 namespace AlphaPoint5EvalExpected {
-    internal class ExpectedQuantileN12 {
+    internal class ExpectedQuantileN16 {
         static void Main_() {
             using (StreamWriter sw = new("../../../../results_disused/quantile_precision150.csv")) {
                 sw.WriteLine("complementary,p,quantile(p),cdf(quantile(p))");
