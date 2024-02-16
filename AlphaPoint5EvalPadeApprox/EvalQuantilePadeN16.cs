@@ -1,6 +1,8 @@
-﻿using MultiPrecision;
+﻿using AlphaPoint5Expected;
+using AlphaPoint5PadeApprox;
+using MultiPrecision;
 
-namespace AlphaPoint5Distribution {
+namespace AlphaPoint5EvalPadeApprox {
     internal class EvalQuantilePadeN16 {
         static void Main() {
             MultiPrecision<Pow2.N16> max_err = "1e-142";

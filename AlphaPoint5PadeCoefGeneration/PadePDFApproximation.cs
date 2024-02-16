@@ -1,43 +1,36 @@
-﻿using MultiPrecision;
+﻿using AlphaPoint5Expected;
+using MultiPrecision;
 using MultiPrecisionAlgebra;
 using MultiPrecisionCurveFitting;
 
-namespace AlphaPoint5Distribution {
-    internal class PDFPadeApproximationLimit {
+namespace AlphaPoint5PadeCoefGeneration {
+    internal class PDFPadeApproximation {
         static void Main_() {
             List<(MultiPrecision<Pow2.N64> xmin, MultiPrecision<Pow2.N64> xmax, MultiPrecision<Pow2.N64> limit_range)> ranges = [
-                (0, 1 / 16d, 1 / 16d),
-                (0, 1 / 8d, 1 / 8d),
-                (0, 1 / 4d, 1 / 4d)
+                (0, 1, 1 / 4096d)
             ];
 
-            using (StreamWriter sw = new("../../../../results_disused/pade_limitpdf_precision150.csv")) {
+            for (MultiPrecision<Pow2.N64> xmin = 1; xmin < 64; xmin *= 2) {
+                ranges.Add((xmin, xmin * 2, xmin / 32));
+            }
+
+            using (StreamWriter sw = new("../../../../results_disused/pade_pdf_precision150.csv")) {
                 bool approximate(MultiPrecision<Pow2.N64> xmin, MultiPrecision<Pow2.N64> xmax) {
                     Console.WriteLine($"[{xmin}, {xmax}]");
 
                     List<(MultiPrecision<Pow2.N64> x, MultiPrecision<Pow2.N64> y)> expecteds_range = [];
 
                     for (MultiPrecision<Pow2.N64> x = xmin, h = (xmax - xmin) / 4096; x <= xmax; x += h) {
-                        if (x != 0) {
-                            MultiPrecision<Pow2.N64> y = PDFN16.Value(1 / MultiPrecision<Pow2.N16>.Square(x.Convert<Pow2.N16>())).Convert<Pow2.N64>()
-                               / MultiPrecision<Pow2.N64>.Pow(x, 3);
+                        MultiPrecision<Pow2.N16> y = PDFN16.Value(x.Convert<Pow2.N16>());
 
-                            expecteds_range.Add((x, y));
-                        }
-                        else {
-                            MultiPrecision<Pow2.N64> y = 1 / MultiPrecision<Pow2.N64>.Sqrt(8 * MultiPrecision<Pow2.N64>.PI);
-
-                            expecteds_range.Add((x, y));
-                        }
+                        expecteds_range.Add((x, y.Convert<Pow2.N64>()));
                     }
 
                     Console.WriteLine("expecteds computed");
 
-                    MultiPrecision<Pow2.N64> x0 = expecteds_range.First().x;
-                    MultiPrecision<Pow2.N64> y0 = expecteds_range.First().y;
-                    MultiPrecision<Pow2.N64> xrange = expecteds_range.Last().x - x0;
+                    MultiPrecision<Pow2.N64> y0 = expecteds_range.Where(item => item.x == xmin).First().y;
 
-                    Vector<Pow2.N64> xs = expecteds_range.Select(item => item.x - x0).ToArray();
+                    Vector<Pow2.N64> xs = expecteds_range.Select(item => item.x - xmin).ToArray();
                     Vector<Pow2.N64> ys = expecteds_range.Select(item => item.y).ToArray();
 
                     for (int coefs = 5; coefs <= 128; coefs++) {
@@ -61,8 +54,9 @@ namespace AlphaPoint5Distribution {
                             }
 
                             if (max_rateerr < "1e-150" &&
-                                !CurveFittingUtils.HasLossDigitsPolynomialCoef(param[..m], 0, xrange) &&
-                                !CurveFittingUtils.HasLossDigitsPolynomialCoef(param[m..], 0, xrange)) {
+                                !CurveFittingUtils.HasLossDigitsPolynomialCoef(param[..m], 0, xmax - xmin) &&
+                                !CurveFittingUtils.HasLossDigitsPolynomialCoef(param[m..], 0, xmax - xmin)) {
+
                                 sw.WriteLine($"x=[{xmin},{xmax}]");
                                 sw.WriteLine($"m={m},n={n}");
                                 sw.WriteLine("numer");

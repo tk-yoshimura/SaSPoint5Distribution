@@ -1,6 +1,7 @@
-﻿using MultiPrecision;
+﻿using AlphaPoint5Expected;
+using MultiPrecision;
 
-namespace AlphaPoint5Distribution {
+namespace AlphaPoint5EvalExpected {
     internal class ExpectedCDFPadeN16 {
         static void Main_() {
             using (StreamWriter sw = new("../../../../results/cdf_precision150.csv")) {

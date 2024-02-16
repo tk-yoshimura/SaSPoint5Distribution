@@ -1,6 +1,6 @@
 ﻿using MultiPrecision;
 
-namespace AlphaPoint5Distribution {
+namespace AlphaPoint5Expected {
     public static class PDFN16 {
         public static readonly List<MultiPrecision<Pow2.N32>> nearzero_coefs = [];
 

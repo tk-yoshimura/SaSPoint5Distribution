@@ -1,8 +1,9 @@
-﻿using MultiPrecision;
+﻿using AlphaPoint5Expected;
+using MultiPrecision;
 using MultiPrecisionAlgebra;
 using MultiPrecisionCurveFitting;
 
-namespace AlphaPoint5Distribution {
+namespace AlphaPoint5PadeCoefGeneration {
     internal class PadeCDFApproximation {
         static void Main_() {
             List<(MultiPrecision<Pow2.N64> xmin, MultiPrecision<Pow2.N64> xmax, MultiPrecision<Pow2.N64> limit_range)> ranges = [

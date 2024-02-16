@@ -1,9 +1,10 @@
-﻿using MultiPrecision;
+﻿using AlphaPoint5Expected;
+using MultiPrecision;
 using MultiPrecisionAlgebra;
 using MultiPrecisionCurveFitting;
 
-namespace AlphaPoint5Distribution {
-    internal class CDFPadeApproximationLimit {
+namespace AlphaPoint5PadeCoefGeneration {
+    internal class PDFPadeApproximationLimit {
         static void Main_() {
             List<(MultiPrecision<Pow2.N64> xmin, MultiPrecision<Pow2.N64> xmax, MultiPrecision<Pow2.N64> limit_range)> ranges = [
                 (0, 1 / 16d, 1 / 16d),
@@ -11,22 +12,23 @@ namespace AlphaPoint5Distribution {
                 (0, 1 / 4d, 1 / 4d)
             ];
 
-            using (StreamWriter sw = new("../../../../results_disused/pade_limitcdf_precision150.csv")) {
+            using (StreamWriter sw = new("../../../../results_disused/pade_limitpdf_precision150.csv")) {
                 bool approximate(MultiPrecision<Pow2.N64> xmin, MultiPrecision<Pow2.N64> xmax) {
                     Console.WriteLine($"[{xmin}, {xmax}]");
 
                     List<(MultiPrecision<Pow2.N64> x, MultiPrecision<Pow2.N64> y)> expecteds_range = [];
 
                     for (MultiPrecision<Pow2.N64> x = xmin, h = (xmax - xmin) / 4096; x <= xmax; x += h) {
-
                         if (x != 0) {
-                            MultiPrecision<Pow2.N64> y = CDFN16.Value(1 / MultiPrecision<Pow2.N16>.Square(x.Convert<Pow2.N16>()), complementary: true).Convert<Pow2.N64>()
-                                / x;
+                            MultiPrecision<Pow2.N64> y = PDFN16.Value(1 / MultiPrecision<Pow2.N16>.Square(x.Convert<Pow2.N16>())).Convert<Pow2.N64>()
+                               / MultiPrecision<Pow2.N64>.Pow(x, 3);
 
-                            expecteds_range.Add((x.Convert<Pow2.N64>(), y.Convert<Pow2.N64>()));
+                            expecteds_range.Add((x, y));
                         }
                         else {
-                            expecteds_range.Add((x.Convert<Pow2.N64>(), 1 / MultiPrecision<Pow2.N64>.Sqrt(2 * MultiPrecision<Pow2.N64>.PI)));
+                            MultiPrecision<Pow2.N64> y = 1 / MultiPrecision<Pow2.N64>.Sqrt(8 * MultiPrecision<Pow2.N64>.PI);
+
+                            expecteds_range.Add((x, y));
                         }
                     }
 
