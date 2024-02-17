@@ -44,6 +44,7 @@ The coefficients decay rapidly, making them suitable numerical evaluation:
 |----|----|----|
 |mean|N/A|undefined|
 |mode|0||
+|median|0||
 |variance|N/A|undefined|
 |0.75-quantile|1.283832775189327742808346186911...||
 |0.9-quantile|12.74134266157698167806432787517...||
