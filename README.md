@@ -49,6 +49,7 @@ The coefficients decay rapidly, making them suitable numerical evaluation:
 |0.9-quantile|12.74134266157698167806432787517...||
 |0.95-quantile|57.30402773063651002282616967046...|
 |0.99-quantile|155.9726103725110631926561534085...||
+|entropy|3.639924445680306495730849603907...||
 
 ## Numeric Table
 [PDF Precision 150](results/pdf_precision150.csv)  

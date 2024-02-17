@@ -4,7 +4,7 @@ using MultiPrecisionRootFinding;
 
 namespace AlphaPoint5EvalExpected {
     internal class ExpectedQuantileLogLogN16 {
-        static void Main() {
+        static void Main_() {
             using (StreamWriter sw = new("../../../../results_disused/quantile_precision150_loglog_2.csv")) {
                 sw.WriteLine("u:=-log2(p),v:=log2(quantile(p)+1)");
 
