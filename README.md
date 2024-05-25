@@ -57,6 +57,9 @@ The coefficients decay rapidly, making them suitable numerical evaluation:
 [CDF Precision 150](results/cdf_precision150.csv)  
 [Quantile Precision 142](results/quantile_precision142.csv)  
 
+## Double Precision (IEEE 754) Approx
+[FP64](https://github.com/tk-yoshimura/SaSPoint5DistributionFP64)
+
 ## S&alpha;S Distributions
 ![sass-pdf](figures/sass_pdf.svg)  
 ![sass-pdf-loglog](figures/sass_pdf_loglog.svg)  
