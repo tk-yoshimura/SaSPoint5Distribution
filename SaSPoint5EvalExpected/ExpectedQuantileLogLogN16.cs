@@ -1,8 +1,8 @@
-﻿using AlphaPoint5Expected;
+﻿using SaSPoint5Expected;
 using MultiPrecision;
 using MultiPrecisionRootFinding;
 
-namespace AlphaPoint5EvalExpected {
+namespace SaSPoint5EvalExpected {
     internal class ExpectedQuantileLogLogN16 {
         static void Main_() {
             using (StreamWriter sw = new("../../../../results_disused/quantile_precision150_loglog_2.csv")) {

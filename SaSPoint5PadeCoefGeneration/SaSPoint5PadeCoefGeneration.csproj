@@ -14,11 +14,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="AlphaPoint5Expected">
-      <HintPath>..\AlphaPoint5Expected\bin\Debug\net8.0\AlphaPoint5Expected.dll</HintPath>
+    <Reference Include="SaSPoint5Expected">
+      <HintPath>..\SaSPoint5Expected\bin\Debug\net8.0\SaSPoint5Expected.dll</HintPath>
     </Reference>
-    <Reference Include="AlphaPoint5PadeApprox">
-      <HintPath>..\AlphaPoint5PadeApprox\bin\Debug\net8.0\AlphaPoint5PadeApprox.dll</HintPath>
+    <Reference Include="SaSPoint5PadeApprox">
+      <HintPath>..\SaSPoint5PadeApprox\bin\Debug\net8.0\SaSPoint5PadeApprox.dll</HintPath>
     </Reference>
   </ItemGroup>
 

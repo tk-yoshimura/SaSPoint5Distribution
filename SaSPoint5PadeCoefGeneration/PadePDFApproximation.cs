@@ -1,9 +1,9 @@
-﻿using AlphaPoint5Expected;
+﻿using SaSPoint5Expected;
 using MultiPrecision;
 using MultiPrecisionAlgebra;
 using MultiPrecisionCurveFitting;
 
-namespace AlphaPoint5PadeCoefGeneration {
+namespace SaSPoint5PadeCoefGeneration {
     internal class PDFPadeApproximation {
         static void Main_() {
             List<(MultiPrecision<Pow2.N64> xmin, MultiPrecision<Pow2.N64> xmax, MultiPrecision<Pow2.N64> limit_range)> ranges = [

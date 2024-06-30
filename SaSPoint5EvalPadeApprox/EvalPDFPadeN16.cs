@@ -1,8 +1,8 @@
-﻿using AlphaPoint5Expected;
-using AlphaPoint5PadeApprox;
+﻿using SaSPoint5Expected;
+using SaSPoint5PadeApprox;
 using MultiPrecision;
 
-namespace AlphaPoint5EvalPadeApprox {
+namespace SaSPoint5EvalPadeApprox {
     internal class EvalPDFPadeN16 {
         static void Main_() {
             MultiPrecision<Pow2.N16> max_err = "1e-150";

@@ -1,8 +1,8 @@
-﻿using AlphaPoint5PadeApprox;
+﻿using SaSPoint5PadeApprox;
 using MultiPrecision;
 using MultiPrecisionRootFinding;
 
-namespace AlphaPoint5EvalExpected {
+namespace SaSPoint5EvalExpected {
     internal class ExpectedQuantileN16 {
         static void Main_() {
             using (StreamWriter sw = new("../../../../results_disused/quantile_precision150.csv")) {

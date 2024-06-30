@@ -1,6 +1,6 @@
 ﻿using MultiPrecision;
 
-namespace AlphaPoint5Expected {
+namespace SaSPoint5Expected {
     public class PDFLimit<N, M> where N : struct, IConstant where M : struct, IConstant {
         private static readonly MultiPrecision<M> norm = 1 / MultiPrecision<M>.Sqrt(2 * MultiPrecision<M>.PI);
         private static readonly List<MultiPrecision<M>> prod_table = [1], frac_table = [2], coef_table = [];

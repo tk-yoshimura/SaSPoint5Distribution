@@ -1,6 +1,6 @@
 ﻿using MultiPrecision;
 
-namespace AlphaPoint5Expected {
+namespace SaSPoint5Expected {
     public static class CDFN16 {
         public static readonly List<MultiPrecision<Pow2.N32>> nearzero_coefs = [];
 

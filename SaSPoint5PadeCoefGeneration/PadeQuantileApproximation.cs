@@ -2,7 +2,7 @@
 using MultiPrecisionAlgebra;
 using MultiPrecisionCurveFitting;
 
-namespace AlphaPoint5PadeCoefGeneration {
+namespace SaSPoint5PadeCoefGeneration {
     internal class PadeQuantileApproximation {
         static void Main() {
             List<(MultiPrecision<Pow2.N64> pmin, MultiPrecision<Pow2.N64> pmax, MultiPrecision<Pow2.N64> limit_range)> ranges = [];

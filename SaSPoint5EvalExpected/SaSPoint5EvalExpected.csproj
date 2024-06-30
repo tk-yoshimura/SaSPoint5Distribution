@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="TYoshimura.MultiPrecision" Version="6.3.3" />
+    <PackageReference Include="TYoshimura.MultiPrecision.Integrate" Version="1.4.5" />
+    <PackageReference Include="TYoshimura.MultiPrecision.RootFinding" Version="1.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="SaSPoint5Expected">
+      <HintPath>..\SaSPoint5Expected\bin\Debug\net8.0\SaSPoint5Expected.dll</HintPath>
+    </Reference>
+    <Reference Include="SaSPoint5PadeApprox">
+      <HintPath>..\SaSPoint5PadeApprox\bin\Debug\net8.0\SaSPoint5PadeApprox.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
