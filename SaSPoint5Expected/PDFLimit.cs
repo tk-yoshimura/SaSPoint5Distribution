@@ -6,6 +6,8 @@ namespace SaSPoint5Expected {
         private static readonly List<MultiPrecision<M>> prod_table = [1], frac_table = [2], coef_table = [];
 
         public static MultiPrecision<N> Value(MultiPrecision<N> x, int max_terms = 8192) {
+            x = MultiPrecision<N>.Abs(x);
+
             MultiPrecision<M> w = 1 / x.Convert<M>(), v = MultiPrecision<M>.Sqrt(w);
 
             MultiPrecision<M> s = 0, u = v * v * v;

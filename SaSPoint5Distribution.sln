@@ -3,26 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaSPoint5Expected", "SaSPoint5Expected\SaSPoint5Expected.csproj", "{C6221049-4F10-452B-B8F8-BFF243374295}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SaSPoint5Expected", "SaSPoint5Expected\SaSPoint5Expected.csproj", "{C6221049-4F10-452B-B8F8-BFF243374295}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaSPoint5EvalExpected", "SaSPoint5EvalExpected\SaSPoint5EvalExpected.csproj", "{2C195856-6CC3-4882-8D73-6C69ED46A2C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SaSPoint5EvalExpected", "SaSPoint5EvalExpected\SaSPoint5EvalExpected.csproj", "{2C195856-6CC3-4882-8D73-6C69ED46A2C9}"
 	ProjectSection(ProjectDependencies) = postProject
 		{C6221049-4F10-452B-B8F8-BFF243374295} = {C6221049-4F10-452B-B8F8-BFF243374295}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaSPoint5PadeApprox", "SaSPoint5PadeApprox\SaSPoint5PadeApprox.csproj", "{D238D8D9-A3FB-4615-AE79-C85F777D57A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SaSPoint5PadeApprox", "SaSPoint5PadeApprox\SaSPoint5PadeApprox.csproj", "{D238D8D9-A3FB-4615-AE79-C85F777D57A2}"
 	ProjectSection(ProjectDependencies) = postProject
 		{B5CD7ACE-9B7D-48FB-A107-3D2FEF72EEB4} = {B5CD7ACE-9B7D-48FB-A107-3D2FEF72EEB4}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaSPoint5PadeCoefGeneration", "SaSPoint5PadeCoefGeneration\SaSPoint5PadeCoefGeneration.csproj", "{B5CD7ACE-9B7D-48FB-A107-3D2FEF72EEB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SaSPoint5PadeCoefGeneration", "SaSPoint5PadeCoefGeneration\SaSPoint5PadeCoefGeneration.csproj", "{B5CD7ACE-9B7D-48FB-A107-3D2FEF72EEB4}"
 	ProjectSection(ProjectDependencies) = postProject
 		{C6221049-4F10-452B-B8F8-BFF243374295} = {C6221049-4F10-452B-B8F8-BFF243374295}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaSPoint5EvalPadeApprox", "SaSPoint5EvalPadeApprox\SaSPoint5EvalPadeApprox.csproj", "{84C2BADD-3786-4F94-9C58-69EBD882A712}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SaSPoint5EvalPadeApprox", "SaSPoint5EvalPadeApprox\SaSPoint5EvalPadeApprox.csproj", "{84C2BADD-3786-4F94-9C58-69EBD882A712}"
 	ProjectSection(ProjectDependencies) = postProject
 		{D238D8D9-A3FB-4615-AE79-C85F777D57A2} = {D238D8D9-A3FB-4615-AE79-C85F777D57A2}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaSPoint5ExpectedTest", "SaSPoint5ExpectedTest\SaSPoint5ExpectedTest.csproj", "{EDB1AFC5-D139-4269-9C50-CCDF31510ED9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C6221049-4F10-452B-B8F8-BFF243374295} = {C6221049-4F10-452B-B8F8-BFF243374295}
 	EndProjectSection
 EndProject
 Global
@@ -51,6 +56,10 @@ Global
 		{84C2BADD-3786-4F94-9C58-69EBD882A712}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84C2BADD-3786-4F94-9C58-69EBD882A712}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84C2BADD-3786-4F94-9C58-69EBD882A712}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDB1AFC5-D139-4269-9C50-CCDF31510ED9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDB1AFC5-D139-4269-9C50-CCDF31510ED9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDB1AFC5-D139-4269-9C50-CCDF31510ED9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDB1AFC5-D139-4269-9C50-CCDF31510ED9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
