@@ -33,7 +33,7 @@ namespace SaSPoint5ExpectedTest {
             }
         }
 
-        
+
 
         [TestMethod]
         public void BitsTest() {

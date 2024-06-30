@@ -1,6 +1,6 @@
-﻿using SaSPoint5Expected;
-using MultiPrecision;
+﻿using MultiPrecision;
 using MultiPrecisionRootFinding;
+using SaSPoint5Expected;
 
 namespace SaSPoint5EvalExpected {
     internal class ExpectedQuantileLogLogN16 {

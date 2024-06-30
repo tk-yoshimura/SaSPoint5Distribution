@@ -1,6 +1,6 @@
-﻿using SaSPoint5Expected;
+﻿using MultiPrecision;
+using SaSPoint5Expected;
 using SaSPoint5PadeApprox;
-using MultiPrecision;
 
 namespace SaSPoint5EvalPadeApprox {
     internal class EvalPDFPadeN16 {

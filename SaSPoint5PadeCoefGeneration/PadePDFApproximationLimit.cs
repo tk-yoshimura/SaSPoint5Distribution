@@ -1,7 +1,7 @@
-﻿using SaSPoint5Expected;
-using MultiPrecision;
+﻿using MultiPrecision;
 using MultiPrecisionAlgebra;
 using MultiPrecisionCurveFitting;
+using SaSPoint5Expected;
 
 namespace SaSPoint5PadeCoefGeneration {
     internal class PDFPadeApproximationLimit {

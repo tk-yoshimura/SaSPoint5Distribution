@@ -1,6 +1,6 @@
-﻿using SaSPoint5PadeApprox;
-using MultiPrecision;
+﻿using MultiPrecision;
 using MultiPrecisionRootFinding;
+using SaSPoint5PadeApprox;
 
 namespace SaSPoint5EvalExpected {
     internal class ExpectedQuantileN16 {

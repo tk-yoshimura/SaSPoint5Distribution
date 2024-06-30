@@ -39,7 +39,7 @@ namespace SaSPoint5Expected {
         }
 
         public static MultiPrecision<M> CoefTable(int n) {
-            for (int k = coef_table.Count; k <= n; k++) { 
+            for (int k = coef_table.Count; k <= n; k++) {
                 MultiPrecision<M> c = PDFNearZero<N, M>.CoefTable(k) / (2 * k + 1);
 
                 coef_table.Add(c);

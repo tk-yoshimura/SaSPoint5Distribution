@@ -26,7 +26,7 @@ namespace SaSPoint5Expected {
                 else if (x.Exponent <= -10) {
                     y = CDFLimit<Plus1<Pow2.N16>, Pow2.N32>.Value(x.Convert<Plus1<Pow2.N16>>());
                 }
-                else{
+                else {
                     y = CDFLimit<Plus1<Pow2.N16>, N24>.Value(x.Convert<Plus1<Pow2.N16>>());
                 }
 

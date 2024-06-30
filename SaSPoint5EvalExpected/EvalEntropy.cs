@@ -1,6 +1,6 @@
-﻿using SaSPoint5PadeApprox;
-using MultiPrecision;
+﻿using MultiPrecision;
 using MultiPrecisionIntegrate;
+using SaSPoint5PadeApprox;
 
 namespace SaSPoint5EvalExpected {
     internal class EvalEntropy {
@@ -18,7 +18,7 @@ namespace SaSPoint5EvalExpected {
             };
 
             (MultiPrecision<Pow2.N16> value, MultiPrecision<Pow2.N16> error, _) =
-                GaussKronrodIntegral<Pow2.N16>.AdaptiveIntegrate(info, 0, MultiPrecision<Pow2.N16>.PositiveInfinity, 
+                GaussKronrodIntegral<Pow2.N16>.AdaptiveIntegrate(info, 0, MultiPrecision<Pow2.N16>.PositiveInfinity,
                 1e-60, GaussKronrodOrder.G64K129, discontinue_eval_points: 131072
             );
 
