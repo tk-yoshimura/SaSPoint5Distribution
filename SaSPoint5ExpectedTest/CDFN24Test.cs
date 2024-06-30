@@ -39,18 +39,20 @@ namespace SaSPoint5ExpectedTest {
             for (int exp = -32; exp <= -4; exp++) {
                 Console.WriteLine($"2^{exp}");
 
-                MultiPrecision<N24> x = double.ScaleB(1, exp);
+                for (double v = 1; v < 2; v += 1d / 32) {
+                    MultiPrecision<N24> x = double.ScaleB(v, exp);
 
-                MultiPrecision<N24> y_dec = CDFN24.Value(MultiPrecision<N24>.BitDecrement(x), complementary: true);
-                MultiPrecision<N24> y_cen = CDFN24.Value(x, complementary: true);
-                MultiPrecision<N24> y_inc = CDFN24.Value(MultiPrecision<N24>.BitIncrement(x), complementary: true);
+                    MultiPrecision<N24> y_dec = CDFN24.Value(MultiPrecision<N24>.BitDecrement(x), complementary: true);
+                    MultiPrecision<N24> y_cen = CDFN24.Value(x, complementary: true);
+                    MultiPrecision<N24> y_inc = CDFN24.Value(MultiPrecision<N24>.BitIncrement(x), complementary: true);
 
-                Console.WriteLine(y_dec);
-                Console.WriteLine(y_cen);
-                Console.WriteLine(y_inc);
+                    Console.WriteLine(y_dec);
+                    Console.WriteLine(y_cen);
+                    Console.WriteLine(y_inc);
 
-                Assert.IsTrue(MultiPrecision<N24>.NearlyEqualBits(y_dec, y_cen, 1));
-                Assert.IsTrue(MultiPrecision<N24>.NearlyEqualBits(y_inc, y_cen, 1));
+                    Assert.IsTrue(MultiPrecision<N24>.NearlyEqualBits(y_dec, y_cen, 1));
+                    Assert.IsTrue(MultiPrecision<N24>.NearlyEqualBits(y_inc, y_cen, 1));
+                }
             }
         }
     }

@@ -40,18 +40,20 @@ namespace SaSPoint5ExpectedTest {
             for (int exp = -32; exp <= -4; exp++) {
                 Console.WriteLine($"2^{exp}");
 
-                MultiPrecision<Pow2.N16> x = double.ScaleB(1, exp);
+                for (double v = 1; v < 2; v += 1d / 32) {
+                    MultiPrecision<Pow2.N16> x = double.ScaleB(v, exp);
 
-                MultiPrecision<Pow2.N16> y_dec = PDFN16.Value(MultiPrecision<Pow2.N16>.BitDecrement(x));
-                MultiPrecision<Pow2.N16> y_cen = PDFN16.Value(x);
-                MultiPrecision<Pow2.N16> y_inc = PDFN16.Value(MultiPrecision<Pow2.N16>.BitIncrement(x));
+                    MultiPrecision<Pow2.N16> y_dec = PDFN16.Value(MultiPrecision<Pow2.N16>.BitDecrement(x));
+                    MultiPrecision<Pow2.N16> y_cen = PDFN16.Value(x);
+                    MultiPrecision<Pow2.N16> y_inc = PDFN16.Value(MultiPrecision<Pow2.N16>.BitIncrement(x));
 
-                Console.WriteLine(y_dec);
-                Console.WriteLine(y_cen);
-                Console.WriteLine(y_inc);
+                    Console.WriteLine(y_dec);
+                    Console.WriteLine(y_cen);
+                    Console.WriteLine(y_inc);
 
-                Assert.IsTrue(MultiPrecision<Pow2.N16>.NearlyEqualBits(y_dec, y_cen, 1));
-                Assert.IsTrue(MultiPrecision<Pow2.N16>.NearlyEqualBits(y_inc, y_cen, 1));
+                    Assert.IsTrue(MultiPrecision<Pow2.N16>.NearlyEqualBits(y_dec, y_cen, 1));
+                    Assert.IsTrue(MultiPrecision<Pow2.N16>.NearlyEqualBits(y_inc, y_cen, 1));
+                }
             }
         }
     }
