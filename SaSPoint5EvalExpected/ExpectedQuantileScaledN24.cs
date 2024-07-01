@@ -2,9 +2,9 @@
 using MultiPrecisionRootFinding;
 using SaSPoint5Expected;
 
-namespace SaSPoint5kEvalExpected {
+namespace SaSPoint5EvalExpected {
     internal class ExpectedQuantileScaledN24 {
-        static void Main() {
+        static void Main_() {
             using (StreamWriter sw = new("../../../../results_disused/quantile_precision230_scaled_2.csv")) {
                 using (BinaryWriter sw_bin = new(File.Open("../../../../results_disused/quantile_precision230_scaled_2.bin", FileMode.Create))) {
                     sw.WriteLine("u:=-log2(p),v:=cquantile(p)*p^(2/3)");
