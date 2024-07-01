@@ -2646,7 +2646,7 @@ namespace SaSPoint5PadeApprox {
                 v = MultiPrecision<Pow2.N16>.Ldexp(MultiPrecision<Pow2.N16>.RcpPI, -1);
             }
 
-            MultiPrecision<Pow2.N16> y = v / MultiPrecision<Pow2.N16>.Sqrt(p);
+            MultiPrecision<Pow2.N16> y = v / MultiPrecision<Pow2.N16>.Square(p);
 
             return y;
         }
