@@ -7,6 +7,8 @@ namespace SaSPoint5PadeCoefGeneration {
     internal class CDFLimit {
         static void Main_() {
             List<(MultiPrecision<Pow2.N64> xmin, MultiPrecision<Pow2.N64> xmax, MultiPrecision<Pow2.N64> limit_range)> ranges = [
+                (0, 1 / 4d, 1 / 4d),
+                (0, 1 / 8d, 1 / 8d),
                 (0, 1 / 16d, 1 / 16d)
             ];
 
@@ -16,19 +18,15 @@ namespace SaSPoint5PadeCoefGeneration {
 
                     List<(MultiPrecision<Pow2.N64> x, MultiPrecision<Pow2.N64> y)> expecteds_range = [];
 
-                    MultiPrecision<Pow2.N64> umin = MultiPrecision<Pow2.N64>.Cube(xmin), umax = MultiPrecision<Pow2.N64>.Cube(xmax);
-
-                    for (MultiPrecision<Pow2.N64> u = umin, h = (umax - umin) / 8192; u <= umax; u += h) {
-                        MultiPrecision<Pow2.N64> x = MultiPrecision<Pow2.N64>.Cbrt(u);
-
+                    for (MultiPrecision<Pow2.N64> x = xmin, h = (xmax - xmin) / 16384; x <= xmax; x += h) {
                         if (x != 0) {
-                            MultiPrecision<Pow2.N64> y = CDFN16.Value(1 / MultiPrecision<Pow2.N16>.Square(x.Convert<Pow2.N16>()), complementary: true).Convert<Pow2.N64>()
+                            MultiPrecision<Pow2.N64> y = CDFN24.Value(1 / MultiPrecision<N24>.Square(x.Convert<N24>()), complementary: true).Convert<Pow2.N64>()
                                 / x;
 
-                            expecteds_range.Add((x.Convert<Pow2.N64>(), y.Convert<Pow2.N64>()));
+                            expecteds_range.Add((x, y.Convert<Pow2.N64>()));
                         }
                         else {
-                            expecteds_range.Add((x.Convert<Pow2.N64>(), 1 / MultiPrecision<Pow2.N64>.Sqrt(2 * MultiPrecision<Pow2.N64>.PI)));
+                            expecteds_range.Add((x, 1 / MultiPrecision<Pow2.N64>.Sqrt(2 * MultiPrecision<Pow2.N64>.PI)));
                         }
                     }
 

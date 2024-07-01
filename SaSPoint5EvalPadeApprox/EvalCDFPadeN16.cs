@@ -10,8 +10,6 @@ namespace SaSPoint5EvalPadeApprox {
             using (StreamWriter sw = new("../../../../results_disused/cdf_pade_eval.csv")) {
                 sw.WriteLine("x,cdferror,ccdferror");
 
-                sw.WriteLine("x,pdf(x),pdf_pade(x),err");
-
                 for (double x = 0; x < 1d / 4096; x += 1d / 1048576) {
                     MultiPrecision<Pow2.N16> cdf_expected = CDFN16.Value(x);
                     MultiPrecision<Pow2.N16> ccdf_expected = CDFN16.Value(x, complementary: true);
@@ -25,7 +23,7 @@ namespace SaSPoint5EvalPadeApprox {
                     Console.WriteLine($"{x}\n{cdf_error:e10}\n{ccdf_error:e10}");
                     sw.WriteLine($"{x},{cdf_error:e20},{ccdf_error:e20}");
 
-                    if (cdf_error >= max_err || ccdf_error >= max_err) {
+                    if (ccdf_error >= max_err) {
                         Console.ReadLine();
                     }
                 }
@@ -44,13 +42,13 @@ namespace SaSPoint5EvalPadeApprox {
                         Console.WriteLine($"{x}\n{cdf_error:e10}\n{ccdf_error:e10}");
                         sw.WriteLine($"{x},{cdf_error:e20},{ccdf_error:e20}");
 
-                        if (cdf_error >= max_err || ccdf_error >= max_err) {
+                        if (ccdf_error >= max_err) {
                             Console.ReadLine();
                         }
                     }
                 }
 
-                for (double x0 = 1; x0 < 4294967296; x0 *= 2) {
+                for (double x0 = 1; x0 < double.ScaleB(1, 128); x0 *= 2) {
                     for (double x = x0; x < x0 * 2; x += x0 / 2048) {
                         MultiPrecision<Pow2.N16> cdf_expected = CDFN16.Value(x);
                         MultiPrecision<Pow2.N16> ccdf_expected = CDFN16.Value(x, complementary: true);
@@ -64,7 +62,7 @@ namespace SaSPoint5EvalPadeApprox {
                         Console.WriteLine($"{x}\n{cdf_error:e10}\n{ccdf_error:e10}");
                         sw.WriteLine($"{x},{cdf_error:e20},{ccdf_error:e20}");
 
-                        if (cdf_error >= max_err || ccdf_error >= max_err) {
+                        if (ccdf_error >= max_err) {
                             Console.ReadLine();
                         }
                     }

@@ -5,7 +5,7 @@ using SaSPoint5Expected;
 
 namespace SaSPoint5PadeCoefGeneration {
     internal class QuantileNZ {
-        static void Main() {
+        static void Main_() {
             List<(MultiPrecision<Pow2.N64> pmin, MultiPrecision<Pow2.N64> pmax, MultiPrecision<Pow2.N64> limit_range)> ranges = [
                 (1, 1.0625, 1d / 1024)
             ];

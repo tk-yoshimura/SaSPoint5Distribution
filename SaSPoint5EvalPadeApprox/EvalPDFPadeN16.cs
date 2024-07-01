@@ -38,7 +38,7 @@ namespace SaSPoint5EvalPadeApprox {
                     }
                 }
 
-                for (double x0 = 1; x0 < 4294967296; x0 *= 2) {
+                for (double x0 = 1; x0 < double.ScaleB(1, 128); x0 *= 2) {
                     for (double x = x0; x < x0 * 2; x += x0 / 2048) {
                         MultiPrecision<Pow2.N16> y = PDFN16.Value(x);
                         MultiPrecision<Pow2.N16> y_approx = PDFPadeN16.Value(x);
