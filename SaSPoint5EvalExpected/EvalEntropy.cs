@@ -4,7 +4,7 @@ using SaSPoint5PadeApprox;
 
 namespace SaSPoint5EvalExpected {
     internal class EvalEntropy {
-        static void Main() {
+        static void Main_() {
             using StreamWriter sw = new("../../../../results/entropy_precision64.csv");
 
             static MultiPrecision<Pow2.N16> info(MultiPrecision<Pow2.N16> x) {
