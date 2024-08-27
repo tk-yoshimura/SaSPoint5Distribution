@@ -48,9 +48,9 @@ namespace SaSPoint5PadeCoefGeneration {
 
                             PadeFitter<Pow2.N64> pade = new(xs, ys, m, n, intercept: pmin == 1 ? 0 : null);
 
-                            Vector<Pow2.N64> param = pade.ExecuteFitting();
+                            Vector<Pow2.N64> param = pade.Fit();
 
-                            MultiPrecision<Pow2.N64> max_rateerr = CurveFittingUtils.MaxRelativeError(ys, pade.FittingValue(xs, param));
+                            MultiPrecision<Pow2.N64> max_rateerr = CurveFittingUtils.MaxRelativeError(ys, pade.Regress(xs, param));
 
                             Console.WriteLine($"m={m},n={n}");
                             Console.WriteLine($"{max_rateerr:e20}");

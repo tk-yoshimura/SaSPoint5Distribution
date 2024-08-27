@@ -5,16 +5,12 @@ using MultiPrecisionCurveFitting;
 
 namespace SaSPoint5PadeCoefGeneration {
     internal class PDF {
-        static void Main_() {
+        static void Main() {
             List<(MultiPrecision<Pow2.N64> xmin, MultiPrecision<Pow2.N64> xmax, MultiPrecision<Pow2.N64> limit_range)> ranges = [
-                (0, 1, 1 / 2048d)
+                (0.03125, 0.046875, 0.046875 - 0.03125),
             ];
 
-            for (MultiPrecision<Pow2.N64> xmin = 1; xmin < 256; xmin *= 2) {
-                ranges.Add((xmin, xmin * 2, xmin / 256));
-            }
-
-            using (StreamWriter sw = new("../../../../results_disused/pade_pdf_precision151.csv")) {
+            using (StreamWriter sw = new("../../../../results_disused/pade_pdf_precision151_4.csv")) {
                 bool approximate(MultiPrecision<Pow2.N64> xmin, MultiPrecision<Pow2.N64> xmax) {
                     Console.WriteLine($"[{xmin}, {xmax}]");
 
@@ -33,14 +29,14 @@ namespace SaSPoint5PadeCoefGeneration {
                     Vector<Pow2.N64> xs = expecteds_range.Select(item => item.x - xmin).ToArray();
                     Vector<Pow2.N64> ys = expecteds_range.Select(item => item.y).ToArray();
 
-                    for (int coefs = 5; coefs <= 128; coefs++) {
+                    for (int coefs = 80; coefs <= 128; coefs++) {
                         foreach ((int m, int n) in CurveFittingUtils.EnumeratePadeDegree(coefs, 2)) {
                             PadeFitter<Pow2.N64> pade = new(xs, ys, m, n, intercept: y0);
 
-                            Vector<Pow2.N64> param = pade.ExecuteFitting();
+                            Vector<Pow2.N64> param = pade.Fit();
                             Vector<Pow2.N64> errs = pade.Error(param);
 
-                            MultiPrecision<Pow2.N64> max_rateerr = CurveFittingUtils.MaxRelativeError(ys, pade.FittingValue(xs, param));
+                            MultiPrecision<Pow2.N64> max_rateerr = CurveFittingUtils.MaxRelativeError(ys, pade.Regress(xs, param));
 
                             Console.WriteLine($"m={m},n={n}");
                             Console.WriteLine($"{max_rateerr:e20}");
@@ -83,7 +79,8 @@ namespace SaSPoint5PadeCoefGeneration {
 
                             if (max_rateerr < "1e-151" &&
                                 !CurveFittingUtils.HasLossDigitsPolynomialCoef(param[..m], 0, xmax - xmin) &&
-                                !CurveFittingUtils.HasLossDigitsPolynomialCoef(param[m..], 0, xmax - xmin)) {
+                                !CurveFittingUtils.HasLossDigitsPolynomialCoef(param[m..], 0, xmax - xmin) &&
+                                param.Count(v => v.val.Sign == Sign.Minus) < 4) {
 
                                 sw.WriteLine($"x=[{xmin},{xmax}]");
                                 sw.WriteLine($"m={m},n={n}");

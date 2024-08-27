@@ -5,7 +5,7 @@ using MultiPrecisionCurveFitting;
 
 namespace SaSPoint5PadeCoefGeneration {
     internal class PDFLimit {
-        static void Main() {
+        static void Main_() {
             List<(MultiPrecision<Pow2.N64> xmin, MultiPrecision<Pow2.N64> xmax, MultiPrecision<Pow2.N64> limit_range)> ranges = [
                 (0, 1 / 4d, 1 / 4d),
                 (0, 1 / 8d, 1 / 8d),
@@ -46,10 +46,10 @@ namespace SaSPoint5PadeCoefGeneration {
                         foreach ((int m, int n) in CurveFittingUtils.EnumeratePadeDegree(coefs, 2)) {
                             PadeFitter<Pow2.N64> pade = new(xs, ys, m, n, intercept: y0);
 
-                            Vector<Pow2.N64> param = pade.ExecuteFitting();
+                            Vector<Pow2.N64> param = pade.Fit();
                             Vector<Pow2.N64> errs = pade.Error(param);
 
-                            MultiPrecision<Pow2.N64> max_rateerr = CurveFittingUtils.MaxRelativeError(ys, pade.FittingValue(xs, param));
+                            MultiPrecision<Pow2.N64> max_rateerr = CurveFittingUtils.MaxRelativeError(ys, pade.Regress(xs, param));
 
                             Console.WriteLine($"m={m},n={n}");
                             Console.WriteLine($"{max_rateerr:e20}");
